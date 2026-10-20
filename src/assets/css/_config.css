@@ -1,0 +1,38 @@
+/* Themes Config */
+
+
+@theme {
+    --font-sans: var(--font-golos-text), sans-serif;
+    --font-body: "Golos Text", sans-serif;
+
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-primary: #f38660;
+
+    --color-body-bg: #fdf6ee;
+    --color-body-color: #897770;
+
+    --color-default-50: #fdf6ee;
+    --color-default-100: #f8eee2;
+    --color-default-200: var(--color-stone-200);
+    --color-default-300: #e3d6d1;
+    --color-default-400: #b29c94;
+    --color-default-500: #897770;
+    --color-default-600: var(--color-stone-600);
+    --color-default-700: #4b332b;
+    --color-default-800: var(--color-stone-800);
+    --color-default-900: var(--color-stone-900);
+    --color-default-950: #3c2219;
+
+
+    --tw-leading: 1.3em;
+    --text-xs--line-height: 1.3em;
+    --text-sm--line-height: 1.3em;
+    --text-base--line-height: 1.3em;
+    --text-lg--line-height: 1.3em;
+    --text-xl--line-height: 1.3em;
+    --text-2xl--line-height: 1.3em;
+    --text-3xl--line-height: 1.3em;
+    --text-4xl--line-height: 13em;
+    --text-7xl--line-height: 1.3em;
+}

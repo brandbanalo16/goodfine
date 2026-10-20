@@ -1,0 +1,24 @@
+/*
+Template Name: Healia - Medical & Healthcare Tailwind CSS Website Template
+Version: 1.0.0
+Author: Unifato
+Website: https://unifato.com/
+Email: unifato.themes@gmail.com
+File: Style CSS File
+*/
+
+@import "tailwindcss";
+@import 'lightgallery/css/lightgallery-bundle.css';
+@import 'lightgallery/css/lg-video.css';
+
+@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/forms";
+
+/* Preline UI */
+
+@import "preline/variants.css";
+@source "preline/dist/*.js";
+
+
+@import "./_config.css";
+@import "./_general.css";
