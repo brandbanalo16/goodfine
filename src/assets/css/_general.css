@@ -2,120 +2,167 @@
 _general.css
 */
 
-
 @layer base {
-    html {
-        @apply w-full scroll-smooth;
-    }
+  html {
+    @apply w-full scroll-smooth;
+  }
 
-    body {
-        @apply font-body bg-body-bg text-body-color md:text-base leading-[1.3em] text-sm font-normal overflow-x-clip;
-    }
+  body {
+    @apply font-body bg-body-bg text-body-color overflow-x-clip text-sm leading-[1.3em] font-normal md:text-base;
+  }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        @apply leading-[1.2em] text-default-950;
-    }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-default-950 leading-[1.2em];
+  }
 
-    button:not(:disabled),
-    [role="button"]:not(:disabled) {
-        @apply cursor-pointer;
-    }
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    @apply cursor-pointer;
+  }
 }
 
 select,
 input,
 textarea {
-    @apply transition-all duration-200 focus:border-primary focus:ring-0 focus:outline-0;
+  @apply focus:border-primary transition-all duration-200 focus:ring-0 focus:outline-0;
 }
-
 
 .container {
-    @apply md:px-10 px-5 max-w-full mx-auto;
+  @apply mx-auto max-w-full px-5 md:px-10;
 }
-
 
 .container-fluid {
-    @apply mx-auto max-w-full md:px-10 px-5;
+  @apply mx-auto max-w-full px-5 md:px-10;
 }
-
 
 .container-full {
-    @apply mx-auto max-w-full lg:px-10 md:px-8 px-5;
+  @apply mx-auto max-w-full px-5 md:px-8 lg:px-10;
 }
 
+.hero-copy-enter {
+  animation: hero-copy-enter 700ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+.hero-image-enter {
+  animation: hero-image-enter 800ms ease-out both;
+}
+
+.hero-copy-delay-1 {
+  animation-delay: 100ms;
+}
+
+.hero-copy-delay-2 {
+  animation-delay: 220ms;
+}
+
+.hero-copy-delay-3 {
+  animation-delay: 340ms;
+}
+
+@keyframes hero-copy-enter {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-image-enter {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-copy-enter,
+  .hero-image-enter {
+    animation: none;
+  }
+}
+
+.site-layout .container,
+.site-layout .container-fluid,
+.site-layout .container-full {
+  padding-inline: 0;
+}
 
 /* Navbar Active Link */
 #navbar a.active {
-    @apply text-primary underline;
+  @apply text-primary no-underline;
 }
 
 #navbar .hs-dropdown-menu a.active {
-    @apply bg-primary/8;
+  @apply bg-primary/8;
 }
-
-
 
 /* Infinite horizontal scroll */
 
 /* Normal direction */
 @keyframes infinite-scroll {
-    from {
-        transform: translateX(0);
-    }
+  from {
+    transform: translateX(0);
+  }
 
-    to {
-        transform: translateX(-100%);
-    }
+  to {
+    transform: translateX(-100%);
+  }
 }
 
 .infinite-scroll {
-    animation: infinite-scroll 100s linear infinite;
-    will-change: transform;
+  animation: infinite-scroll 100s linear infinite;
+  will-change: transform;
 }
 
 /* Inverse direction */
 @keyframes infinite-scroll-inverse {
-    from {
-        transform: translateX(-100%);
-    }
+  from {
+    transform: translateX(-100%);
+  }
 
-    to {
-        transform: translateX(0);
-    }
+  to {
+    transform: translateX(0);
+  }
 }
 
 .infinite-scroll-inverse {
-    animation: infinite-scroll-inverse 100s linear infinite;
-    will-change: transform;
+  animation: infinite-scroll-inverse 100s linear infinite;
+  will-change: transform;
 }
 
-
 @theme {
-    --animate-marquee: marquee 20s linear infinite;
-    --animate-marquee-reverse: marquee-reverse 20s linear infinite;
+  --animate-marquee: marquee 20s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 20s linear infinite;
 }
 
 @keyframes marquee {
-    0% {
-        transform: translateX(0);
-    }
+  0% {
+    transform: translateX(0);
+  }
 
-    100% {
-        transform: translateX(-50%);
-    }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes marquee-reverse {
-    0% {
-        transform: translateX(-50%);
-    }
+  0% {
+    transform: translateX(-50%);
+  }
 
-    100% {
-        transform: translateX(0);
-    }
+  100% {
+    transform: translateX(0);
+  }
 }

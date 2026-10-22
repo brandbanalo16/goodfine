@@ -13,8 +13,10 @@ const AppProvidersWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <Topbar />
-      {children}
-      <Footer />
+      <div className="site-layout px-4 sm:px-6 lg:px-10">
+        {children}
+        <Footer />
+      </div>
     </>
   )
 }
