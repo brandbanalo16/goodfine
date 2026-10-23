@@ -65,7 +65,7 @@ const Hero = () => {
   const slide = bannerSlides[currentIndex]
 
   return (
-    <section className="group relative w-full pt-6 pb-6 select-none md:pb-8" onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)} aria-label="Good Fine featured products">
+    <section className="group relative w-full px-4 pt-6 pb-6 select-none sm:px-6 md:pb-8 lg:px-10" onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)} aria-label="Good Fine featured products">
       <div className="bg-default-950 relative isolate min-h-[560px] overflow-hidden rounded-2xl sm:min-h-[620px] md:min-h-[680px] lg:min-h-[740px]">
         <Image key={slide.alt} src={slide.image} alt={slide.alt} fill priority={currentIndex === 0} className="hero-image-enter object-cover object-center" sizes="(max-width: 768px) 100vw, 95vw" />
 

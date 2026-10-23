@@ -1,163 +1,55 @@
-'use client'
+import { Icon } from '@iconify/react'
 
-import icon16 from '@/assets/images/icons/icon-16.svg'
-import icon19 from '@/assets/images/icons/icon-19.svg'
-import icon20 from '@/assets/images/icons/icon-20.svg'
-import icon21 from '@/assets/images/icons/icon-21.svg'
-import stepSvg from '@/assets/images/other/setp.svg'
-import stepImage from '@/assets/images/other/step-image.png'
-import Image, { StaticImageData } from 'next/image'
-import { useState } from 'react'
-
-export type CategoryItem = {
-  name: string
-  icon: StaticImageData
-}
-
-export type TabType = {
-  id: string
-  label: string
-  ariaSelected: string
-  ariaControls: string
-  dataHsTab: string
-  description: string
-  description2?: string
-  bullets: string[]
-  categories?: CategoryItem[]
-}
-
-const tabData: TabType[] = [
+const processSteps = [
   {
-    id: 'scheduled-test-tab',
-    label: 'Schedule lab tests',
-    ariaSelected: 'true',
-    ariaControls: 'scheduled-test-tab',
-    dataHsTab: '#scheduled-test-tab',
-    description: 'Browse our test catalog and choose the package that best fits your health needs. Whether it’s a routine check-up or a specific diagnostic.',
-    bullets: ['Select your test online with clear, upfront pricing', 'No doctor referral required', 'Choose your preferred time slot instantly'],
-    categories: [
-      { name: 'Metabolic health', icon: icon19 },
-      { name: 'Nutrient levels', icon: icon16 },
-      { name: 'Heart health', icon: icon20 },
-      { name: 'Thyroid health', icon: icon21 },
-    ],
+    number: '01',
+    icon: 'tabler:palette',
+    title: 'Choose Your Coating Solution',
+    description: 'Browse our wide range of Wood, Metal, Glass, Plastic & Specialty Coatings and select the product that best matches your project requirements.',
   },
   {
-    id: 'sample-collection-tab',
-    label: 'Sample collection',
-    ariaSelected: 'false',
-    ariaControls: 'sample-collection-tab',
-    dataHsTab: '#sample-collection-tab',
-    description: 'Experience a smooth and hygienic sample collection process designed for your comfort.',
-    description2: 'Once your lab tests are scheduled, a certified phlebotomist will arrive at your location (or you can visit a nearby lab) for a smooth sample collection process. ',
-    bullets: ['At-Home Sample Collection', 'In-Lab Collection', 'Secure Handling', 'Flexible Timing'],
+    number: '02',
+    icon: 'tabler:shopping-bag',
+    title: 'Place Your Order',
+    description: 'Connect with our sales team or authorized distributors for detailed specifications, bulk pricing, and delivery timelines. We make ordering simple and hassle-free.',
   },
   {
-    id: 'result-tab',
-    label: 'Get result',
-    ariaSelected: 'false',
-    ariaControls: 'result-tab',
-    dataHsTab: '#result-tab',
-    description: 'Receive a comprehensive health report with clear explanations and actionable insights',
-    description2: 'Your test results will be available securely on your online dashboard within a few days. Each report is easy to understand and includes personalized insights, trend tracking, and early detection alerts.',
-    bullets: ['Interactive Health Dashboard', 'Personalized Health Score', 'Trend Analysis', 'Early Detection Alerts'],
+    number: '03',
+    icon: 'tabler:paint',
+    title: 'Apply & Experience Excellence',
+    description: 'With support from our application experts, apply your coating and enjoy durable, elegant, long-lasting finishes on your surfaces.',
   },
 ]
 
 const HowItWorks = () => {
-  const [activeTab, setActiveTab] = useState<string>('scheduled-test-tab')
-
   return (
-    <section className="relative size-full overflow-hidden py-20 md:py-25 lg:py-35">
-      <div className="container-fluid">
-        <div className="mx-auto mb-12.5 max-w-200 text-center">
-          <div className="text-primary mb-2.5 text-sm">(How it works)</div>
-          <h2 className="text-4xl lg:text-5xl">
-            The smarter way to take <br /> <span className="text-default-400">control of your health</span>
+    <section className="relative w-full overflow-hidden bg-white py-16 md:py-20 lg:py-25" aria-labelledby="process-title">
+      <div className="container">
+        <div className="mx-auto mb-10 max-w-3xl text-center md:mb-14">
+          <div className="text-primary mb-2.5 text-sm font-medium tracking-wide">(Our Process)</div>
+          <h2 id="process-title" className="text-default-950 text-3xl font-semibold tracking-tight md:text-4xl lg:text-5xl">
+            Get Our Service In <span className="text-default-400">3 Steps</span>
           </h2>
+          <p className="text-default-700 mx-auto mt-4 max-w-2xl leading-relaxed">
+            Over the years, we have built a reputation as an <strong className="text-default-950 font-semibold">ISO 9001:2015 certified company</strong>, delivering products that combine{' '}
+            <strong className="text-default-950 font-semibold">durability, aesthetics, and performance.</strong>
+          </p>
         </div>
 
-        <div className="border-default-300 rounded-2xl border p-10">
-          <div className="grid grid-cols-2 gap-7.5">
-            <nav id="hs-tabs" className="flex gap-5" aria-label="Tabs" role="tablist" aria-orientation="horizontal">
-              {tabData.map((tab) => {
-                const isActive = activeTab === tab.id
-                return (
-                  <button
-                    key={tab.id}
-                    type="button"
-                    onClick={() => setActiveTab(tab.id)}
-                    className={`hs-tab-active:border-primary hs-tab-active:text-primary text-default-950 rounded-lg border border-transparent bg-white px-5 py-3 text-base transition-all duration-300 ${isActive ? 'active' : ''}`}
-                    aria-selected={isActive ? 'true' : 'false'}
-                    data-hs-tab={tab.dataHsTab}
-                    aria-controls={tab.ariaControls}
-                    role="tab"
-                  >
-                    {tab.label}
-                  </button>
-                )
-              })}
-            </nav>
-          </div>
+        <div className="grid gap-5 md:grid-cols-3 md:gap-6">
+          {processSteps.map((step) => (
+            <article key={step.number} className="border-default-200 bg-default-50 flex h-full flex-col rounded-2xl border p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg md:p-7.5">
+              <div className="mb-8 flex items-center justify-between">
+                <span className="text-primary text-4xl font-semibold tracking-tight">{step.number}</span>
+                <span className="bg-primary/10 text-primary flex size-14 items-center justify-center rounded-full">
+                  <Icon icon={step.icon} className="size-7" aria-hidden="true" />
+                </span>
+              </div>
 
-          <div className="mt-5">
-            {tabData.map((tab) => {
-              const isActive = activeTab === tab.id
-              return (
-                <div key={tab.id} id={tab.id} className={isActive ? '' : 'hidden'} role="tabpanel" aria-labelledby={tab.ariaControls + '-item'}>
-                  <div className="grid grid-cols-2 gap-7.5">
-                    <div className={tab.id === 'scheduled-test-tab' ? 'flex h-full flex-col' : 'text-default-950 flex h-full flex-col'}>
-                      <p className={tab.id === 'scheduled-test-tab' ? 'text-default-950 mb-7.5' : 'mb-7.5'}>{tab.description}</p>
-
-                      {tab.description2 && <p>{tab.description2}</p>}
-
-                      {tab.id === 'scheduled-test-tab' ? (
-                        <ul className="marker:text-primary mb-12.5 list-inside list-disc space-y-1.5">
-                          {tab.bullets.map((bullet, idx) => (
-                            <li key={idx}>{bullet}</li>
-                          ))}
-                        </ul>
-                      ) : (
-                        <div className="bg-default-100 mt-auto rounded-xl p-7.5">
-                          <ul className="marker:text-primary list-inside list-disc space-y-1.5">
-                            {tab.bullets.map((bullet, idx) => (
-                              <li key={idx}>{bullet}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-
-                      {tab.categories && (
-                        <div className="bg-default-100 mt-auto rounded-xl p-7.5">
-                          <div className="grid grid-cols-2 gap-7.5">
-                            {tab.categories.map((cat, idx) => (
-                              <div key={idx} className="flex items-center gap-2">
-                                <Image src={cat.icon} alt="Icon" className="size-7" />
-                                <div className="text-default-950">{cat.name}</div>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-                    </div>
-
-                    <div className="-mt-17">
-                      <div className="relative flex h-125 items-center justify-center overflow-hidden rounded-lg p-12.5 [flex-flow:column] lg:p-25">
-                        <Image src={stepImage} alt="Step Image" className="absolute inset-0 z-0" />
-
-                        <div className="absolute inset-0 z-0 bg-[linear-gradient(180deg,#3c2219,transparent_50%,#3c2219)]"></div>
-
-                        <div className="absolute inset-auto flex flex-col items-center justify-center rounded-lg bg-white/10 p-7.5 [backdrop-filter:blur(10px)]">
-                          <h3 className="text-[26px] text-white">Good morning, Sarah</h3>
-                          <Image src={stepSvg} alt="Dashboard" className="w-75" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
+              <h3 className="text-default-950 mb-3 text-xl leading-snug font-semibold md:text-2xl">{step.title}</h3>
+              <p className="text-default-700 text-sm leading-relaxed md:text-base">{step.description}</p>
+            </article>
+          ))}
         </div>
       </div>
     </section>

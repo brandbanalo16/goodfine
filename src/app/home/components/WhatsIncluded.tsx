@@ -68,7 +68,8 @@ const WhatsIncluded = () => {
 
           <div className="bg-default-100 space-y-12.5 rounded-lg p-10">
             <div className="text-center">
-              <h3 className="mb-10 text-[30px]">Heart Health</h3>
+              <h3 className="mb-2.5 text-[30px]">Heart Health</h3>
+              <p className="text-default-600 mx-auto mb-8 max-w-md text-sm leading-relaxed">Track key markers to better understand your cardiovascular health over time.</p>
 
               <div className="border-default-300 rounded-md border p-5">
                 <h3 className="text-primary mb-2.5 text-2xl">-5.9</h3>

@@ -58,8 +58,8 @@ const Topbar = () => {
 
   return (
     <>
-      <header className="relative">
-        <div className="bg-default-950 flex min-h-9 items-center justify-between gap-4 px-4 text-[11px] font-semibold text-white sm:px-6 sm:text-xs lg:px-10">
+      <header className="bg-default-950 relative w-full">
+        <div className="mx-auto flex min-h-9 w-full max-w-[1440px] items-center justify-between gap-4 px-4 text-[11px] font-semibold text-white sm:px-6 sm:text-xs lg:px-10">
           <p className="hidden items-center gap-2 text-white/75 sm:flex">
             <Icon icon="tabler:heart-plus" className="text-primary size-4" />
             Better care, made simpler
@@ -78,8 +78,8 @@ const Topbar = () => {
         </div>
       </header>
 
-      <div className="sticky top-0 z-140 mx-auto px-4 pt-3 pb-3 sm:px-6 lg:px-10">
-        <div className="nav-sticky navbar flex min-h-18 w-full items-center justify-between gap-3 rounded-2xl bg-white px-4 py-2 shadow-[0_12px_35px_-20px_rgba(60,34,25,0.45)] transition-all duration-300 sm:px-5 lg:px-6">
+      <div className="sticky top-0 z-140 w-full px-4 pt-3 pb-3 sm:px-6 lg:px-10">
+        <div className="nav-sticky navbar mx-auto flex min-h-18 w-full max-w-[1360px] items-center justify-between gap-3 rounded-2xl bg-white px-4 py-2 shadow-[0_12px_35px_-20px_rgba(60,34,25,0.45)] transition-all duration-300 sm:px-5 lg:px-6">
           <Link href="/" className="flex shrink-0 items-center" aria-label="Healia home">
             <Image src={logoDark} alt="Healia" className="h-14 w-auto object-contain sm:h-16" priority />
           </Link>
