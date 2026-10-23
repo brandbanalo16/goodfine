@@ -47,7 +47,7 @@ const shadeImages: ShadeImage[] = [
 
 const TrendingColourShades = () => {
   return (
-    <section className="relative w-full bg-white py-12 md:py-16" aria-labelledby="trending-colour-shades-title">
+    <section className="relative w-full py-12 md:py-16" aria-labelledby="trending-colour-shades-title">
       <div className="container">
         <div className="mb-7 text-center md:mb-9">
           <h2 id="trending-colour-shades-title" className="text-default-950 text-2xl font-bold tracking-tight md:text-3xl">

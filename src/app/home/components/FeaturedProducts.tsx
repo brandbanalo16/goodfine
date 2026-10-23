@@ -47,7 +47,7 @@ const FeaturedProducts = () => {
   }, [handleNext, isPaused])
 
   return (
-    <section className="relative w-full bg-white" onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)} aria-label="Featured Products Slider">
+    <section className="relative w-full" onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)} aria-label="Featured Products Slider">
       <div className="container pb-2">
         {/* Header row: title left, arrows right */}
         <div className="flex items-center justify-between py-5 md:py-7">

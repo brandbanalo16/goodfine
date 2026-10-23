@@ -87,33 +87,6 @@ const Pricing = () => {
           >
             <div className="text-default-950 mb-5">What included</div>
 
-            <div className="mb-5 flex flex-wrap items-center gap-4">
-              {pricingBenefitsData.map((benefit, index) => (
-                <div key={index} className="flex items-center gap-2 rounded-lg bg-white px-5 py-2.5">
-                  <div className="bg-primary size-2 rounded-full"></div>
-                  <div className="text-default-950">{benefit}</div>
-                </div>
-              ))}
-            </div>
-
-            <div className="mb-5 flex items-center gap-3 lg:gap-12.5">
-              {pricingBadgesData.map((badge, index) => (
-                <div key={index} className="flex items-center gap-2">
-                  <Icon icon="tabler:check" className="text-primary size-6" />
-                  <div>{badge}</div>
-                </div>
-              ))}
-            </div>
-
-            <div className="mb-25 grid">
-              <Link href="/contact" className="bg-default-950 text-primary group inline-flex items-center justify-center gap-2.5 rounded-md px-7.5 py-5 text-lg transition-all">
-                Start Testing
-                <i className="flex size-5 items-center justify-center transition-all duration-700 group-hover:rotate-180">
-                  <Image src={iconPrimary} alt="Icon" />
-                </i>
-              </Link>
-            </div>
-
             <div className="space-y-5 md:space-y-7.5">
               {faqData.map((faq, index) => {
                 const isOpen = openFaqIndex === index

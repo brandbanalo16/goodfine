@@ -33,7 +33,7 @@ const choiceData: ChoiceType[] = [
 
 const WhyChoose = () => {
   return (
-    <section className="relative size-full overflow-hidden py-20 md:py-25" style={{ backgroundImage: `linear-gradient(#3c2219b3, #3c2219b3), url(${runningImage.src})` }}>
+    <section className="site-layout-full-width relative w-full overflow-hidden px-4 py-20 sm:px-6 md:py-25 lg:px-10" style={{ backgroundImage: `linear-gradient(#3c2219b3, #3c2219b3), url(${runningImage.src})` }}>
       <div className="container-fluid">
         <div className="bg-default-950 overflow-hidden rounded-2xl">
           <div className="grid lg:grid-cols-14">

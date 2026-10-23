@@ -99,7 +99,7 @@ textarea {
   padding-inline: 0;
 }
 
-.site-layout > section:not([aria-label='Good Fine featured products']) {
+.site-layout > section:not([aria-label='Good Fine featured products']):not(.site-layout-full-width) {
   box-sizing: border-box;
   width: 100%;
   max-width: 1440px;

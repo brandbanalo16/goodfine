@@ -102,28 +102,6 @@ const WhatsIncluded = () => {
               ))}
             </div>
           </div>
-
-          <div className="lg:col-span-2">
-            <div className="bg-default-100 overflow-hidden rounded-lg p-10">
-              <div className="mx-auto mb-25 max-w-145 text-center">
-                <h3 className="mb-4 text-[30px]">Hormone balance</h3>
-                <p>Track and optimize key hormones to improve energy, mood, metabolism, and overall well-being with personalized insights and lifestyle guidance.</p>
-              </div>
-
-              <div className="mx-auto -mb-75 h-125 w-137.5">
-                <Image src={radarChart} alt="Vector Image" className="size-full" />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="grid">
-          <Link href="/about" className="bg-primary text-default-950 group inline-flex items-center justify-center gap-2.5 rounded-md px-7.5 py-5 text-lg transition-all">
-            See what's Included
-            <span className="flex size-5 items-center justify-center transition-all duration-700 group-hover:rotate-180">
-              <Image src={iconDark} alt="Icon" />
-            </span>
-          </Link>
         </div>
       </div>
     </section>
