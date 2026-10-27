@@ -1,11 +1,14 @@
 'use client'
 
 import { preline } from '@/utils/preline'
+import { usePathname } from 'next/navigation'
 import React, { useEffect } from 'react'
 import Footer from '../footer/Footer'
 import Topbar from '../topbar/Topbar'
 
 const AppProvidersWrapper = ({ children }: { children: React.ReactNode }) => {
+  const pathname = usePathname()
+
   useEffect(() => {
     preline.init()
   }, [])
@@ -13,7 +16,7 @@ const AppProvidersWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <Topbar />
-      <main className="site-layout w-full">{children}</main>
+      <main className={`site-layout w-full ${pathname === '/home' ? 'site-layout-home' : ''}`}>{children}</main>
       <Footer />
     </>
   )

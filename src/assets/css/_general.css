@@ -99,12 +99,68 @@ textarea {
   padding-inline: 0;
 }
 
-.site-layout > section:not([aria-label='Good Fine featured products']):not(.site-layout-full-width) {
+.site-layout > section:not([aria-label='Good Fine featured products']):not(.site-layout-full-width):not(.site-page-hero) {
   box-sizing: border-box;
   width: 100%;
   max-width: 1440px;
   margin-inline: auto;
   padding-inline: clamp(1rem, 4vw, 2.5rem);
+}
+
+.site-layout .site-page-hero {
+  position: relative;
+  isolation: isolate;
+  box-sizing: border-box;
+  width: 100vw;
+  max-width: none;
+  margin-inline: calc(50% - 50vw);
+  display: flex;
+  min-height: 540px;
+  align-items: center;
+  padding-block: 180px 56px;
+  padding-inline: 0;
+}
+
+.site-layout .site-page-hero-background {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.site-layout .site-page-hero::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background: linear-gradient(90deg, rgb(33 21 14 / 72%), rgb(33 21 14 / 38%) 58%, rgb(33 21 14 / 12%));
+  content: '';
+  pointer-events: none;
+}
+
+.site-layout .site-page-hero > .container {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 767px) {
+  .site-layout .site-page-hero {
+    min-height: 440px;
+    padding-block: 140px 40px;
+  }
+}
+
+.site-layout .site-page-hero > .container {
+  padding-inline: clamp(1rem, 4vw, 2.5rem);
+}
+
+.site-layout-home > section {
+  padding-block: clamp(3rem, 5vw, 5rem);
+}
+
+.site-layout-home > section[aria-label='Good Fine featured products'] {
+  padding-top: 0;
 }
 
 /* Navbar Active Link */

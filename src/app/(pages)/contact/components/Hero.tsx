@@ -1,13 +1,12 @@
-import conatctImage from '@/assets/images/bg/contact-image.png'
+import pageBanner from '@/assets/images/bg/page-banner.png'
 import { Icon } from '@iconify/react'
 import Image from 'next/image'
 
 const Hero = () => {
   return (
     <>
-      <section className="relative size-full overflow-hidden pt-32 pb-10 md:pt-37.5 lg:pt-50 lg:pb-25">
-        <Image src={conatctImage} className="absolute inset-0 -z-1 size-full object-cover opacity-90" alt="Decoration" />
-        <div className="bg-default-950 absolute inset-0 -z-1 bg-[linear-gradient(180deg,transparent,#3c2219)] opacity-50 blur-2xl"></div>
+      <section className="site-page-hero relative size-full overflow-visible pt-24 pb-8 md:pt-28 lg:pt-40 lg:pb-16">
+        <Image src={pageBanner} className="site-page-hero-background -z-1 object-cover opacity-90" alt="Decoration" priority />
 
         <div className="container">
           <div className="grid gap-10 md:grid-cols-2">
@@ -17,7 +16,7 @@ const Hero = () => {
                 <p className="text-default-50">Your health journey is our priority. Whether you're curious about our membership.</p>
               </div>
 
-              <div className="mt-20 space-y-5">
+              <div className="mt-10 space-y-5">
                 <div className="flex items-center gap-2.5">
                   <div className="bg-default-700 flex size-11 items-center justify-center rounded-md">
                     <Icon icon="tabler:mail" className="text-primary size-7"></Icon>

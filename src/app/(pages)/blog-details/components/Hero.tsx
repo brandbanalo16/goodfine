@@ -1,11 +1,11 @@
-import HeroBg from '@/assets/images/bg/blog.png'
+import pageBanner from '@/assets/images/bg/page-banner.png'
 import Image from 'next/image'
 
 const Hero = () => {
   return (
     <>
-      <section className="relative size-full overflow-hidden bg-[linear-gradient(180deg,#3c2219,transparent,#3c2219_70%)] pt-32 pb-14 md:pt-37.5 lg:pt-80 lg:pb-20">
-        <Image src={HeroBg} className="absolute inset-0 -z-1 size-full object-cover opacity-90" alt="Decoration" />
+      <section className="site-page-hero relative size-full overflow-visible pt-24 pb-10 md:pt-28 lg:pt-50 lg:pb-16">
+        <Image src={pageBanner} className="site-page-hero-background -z-1 object-cover opacity-90" alt="Decoration" priority />
 
         <div className="container max-w-245!">
           <div className="text-center">

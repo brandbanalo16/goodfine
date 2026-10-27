@@ -51,27 +51,11 @@ const Pricing = () => {
               <h2 className="mb-5 text-4xl md:text-[46px] lg:text-[50px]">
                 Healia <br /> <span className="text-default-400">Membership</span>
               </h2>
-              <p>To keep you on track with preventive care and regular testing.</p>
             </div>
 
             <div className="lg:col-span-2">
               <div className="space-y-5">
-                <div className="flex items-center gap-x-3">
-                  <span className="text-muted-foreground-1 text-sm">Monthly</span>
-                  <label htmlFor="hs-xs-switch" className="relative inline-block h-5 w-9 cursor-pointer">
-                    <input type="checkbox" id="hs-xs-switch" className="peer sr-only" checked={isYearly} onChange={(e) => setIsYearly(e.target.checked)} />
-                    <span className="peer-checked:bg-primary-checked absolute inset-0 rounded-full bg-white transition-colors duration-200 ease-in-out peer-disabled:pointer-events-none peer-disabled:opacity-50"></span>
-                    <span className="bg-primary absolute start-0.5 top-1/2 size-4 -translate-y-1/2 rounded-full shadow-sm transition-transform duration-200 ease-in-out peer-checked:translate-x-full"></span>
-                  </label>
-                  <span className="text-muted-foreground-1 text-sm">Yearly</span>
-                </div>
-
-                <p className="text-default-950">Cut $15,000 in costs down to $399</p>
-
-                <div className="flex items-end">
-                  <h2 className="bg-[linear-gradient(90deg,var(--color-primary),#3c2219)] bg-clip-text text-4xl/none text-transparent md:text-[46px] lg:text-[50px]">{isYearly ? '$49' : '$49'}</h2>
-                  <div>/ month</div>
-                </div>
+                <p className="text-default-950">Cut $15,000 in costs down to $399</p>              
               </div>
             </div>
           </div>

@@ -1,11 +1,7 @@
 import icon1 from '@/assets/images/icons/icon-1.svg'
 import icon2 from '@/assets/images/icons/icon-2.svg'
-import cardiogramVector from '@/assets/images/other/cardiogram-vector.svg'
 import featureImage from '@/assets/images/other/feature.jpg'
-import iconDark from '@/assets/images/other/icon-dark.svg'
-import radarChart from '@/assets/images/other/radar-chart.svg'
 import Image, { StaticImageData } from 'next/image'
-import Link from 'next/link'
 
 export type HeartMarkerItem = {
   name: string
@@ -37,17 +33,17 @@ const WhatsIncluded = () => {
     <section className="relative size-full overflow-hidden pb-20 md:pb-25 lg:pb-35">
       <div className="container">
         <div className="mx-auto mb-12.5 max-w-200 text-center">
-          <div className="text-primary mb-2.5 text-sm">(What's included)</div>
+          <div className="text-primary mb-2.5 text-sm">(Why Choose Us)</div>
           <h2 className="text-4xl lg:text-5xl">
-            What's included in your <br /> <span className="text-default-400">health intelligence</span>
+            Quality That Professionals Trust <br /> <span className="text-default-400">Good Fine</span>
           </h2>
         </div>
 
-        <div className="mb-20 grid gap-7.5 lg:grid-cols-2">
-          <div className="relative h-full overflow-hidden">
-            <div className="size-full rounded-xl bg-cover bg-position-[0_0,100%_70%] bg-no-repeat" style={{ backgroundImage: `url(${featureImage.src})` }}></div>
+        <div className="mb-20 grid items-stretch gap-7.5 lg:grid-cols-2">
+          <div className="bg-default-950 relative aspect-[4/5] min-h-[520px] overflow-hidden rounded-xl">
+            <Image src={featureImage} alt="Wood furniture with Good Fine glossy and matte finish examples" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-contain object-center" />
 
-            <div className="absolute inset-0 z-1 flex flex-col justify-end rounded-xl bg-[linear-gradient(180deg,transparent,#3c2219)] p-5 lg:p-10">
+            <div className="absolute inset-0 z-1 flex flex-col justify-end bg-[linear-gradient(180deg,transparent,#3c2219)] p-5 lg:p-10">
               <div className="feature-one-content">
                 <div className="feature-one-top mb-6">
                   <h3 className="text-default-50 mb-2.5 text-[30px]">Metabolic Health</h3>
@@ -66,40 +62,19 @@ const WhatsIncluded = () => {
             </div>
           </div>
 
-          <div className="bg-default-100 space-y-12.5 rounded-lg p-10">
-            <div className="text-center">
+          <div className="bg-default-100 flex min-h-[520px] items-center justify-center rounded-xl p-6 sm:p-10 lg:p-12">
+            <div className="w-full text-center">
               <h3 className="mb-2.5 text-[30px]">Heart Health</h3>
-              <p className="text-default-600 mx-auto mb-8 max-w-md text-sm leading-relaxed">Track key markers to better understand your cardiovascular health over time.</p>
-
-              <div className="border-default-300 rounded-md border p-5">
-                <h3 className="text-primary mb-2.5 text-2xl">-5.9</h3>
-                <div>Biological age</div>
-              </div>
-            </div>
-
-            <Image src={cardiogramVector} alt="Icon" className="mx-auto flex h-20 w-full" />
-
-            <div className="flex gap-12.5">
-              {heartMarkers.map((marker, index) => (
-                <div key={index} className="flex items-center gap-2.5">
-                  <div className={`h-12 w-1 rounded ${marker.colorClass}`}></div>
-
-                  <div className="biological-list-text">
-                    <div className="text-default-950">{marker.name}</div>
-                    <div className="flex items-center gap-2 text-xs">
-                      <div>{marker.status}</div>
-                      <div>•</div>
-                      <div>
-                        <span className="text-primary">{marker.value}</span> pg/ml
-                      </div>
-                    </div>
-                  </div>
-
-                  <span className="ms-5 flex self-end">
-                    <Image src={marker.icon} alt="Icon" />
-                  </span>
-                </div>
-              ))}
+              <p className="text-default-600 mx-auto mb-8 max-w-md text-sm leading-relaxed">
+                Goodfine delivers reliable wood finishing solutions designed to enhance the beauty, durability, and performance of wooden surfaces. Our products help achieve smooth finishes and professional results across furniture and interior woodwork applications.
+              </p>
+              <p className="text-default-600 mx-auto mb-8 max-w-md text-sm leading-relaxed">
+                We focus on consistent product quality, dependable performance, and value-driven pricing to meet the needs of furniture manufacturers, dealers, distributors, and woodworking professionals. Our solutions are designed to support efficient application and lasting
+                finishes.
+              </p>
+              <p className="text-default-600 mx-auto mb-8 max-w-md text-sm leading-relaxed">
+                Goodfine delivers reliable wood finishing solutions designed to enhance the beauty, durability, and performance of wooden surfaces. Our products help achieve smooth finishes and professional results across furniture and interior woodwork applications.
+              </p>
             </div>
           </div>
         </div>

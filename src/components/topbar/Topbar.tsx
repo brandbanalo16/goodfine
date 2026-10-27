@@ -1,5 +1,6 @@
 'use client'
 
+import { productCategories } from '@/app/products/product-categories'
 import logoDark from '@/assets/images/logo-main.webp'
 import { Icon } from '@iconify/react'
 import Image from 'next/image'
@@ -18,36 +19,24 @@ export type NavigationType = {
   children?: SubNavigationType[]
 }
 
-export const PAGES_SUBMENUData: SubNavigationType[] = [
+const navigationData: NavigationType[] = [
   { label: 'Home', route: '/home' },
   { label: 'About', route: '/about' },
+  {
+    label: 'Category',
+    route: '/products#categories',
+    children: productCategories.map(({ name, slug }) => ({ label: name, route: `/products/category/${slug}` })),
+  },
   { label: 'Blog', route: '/blog' },
-  { label: 'Blog Details', route: '/blog-details' },
-  { label: 'Pricing', route: '/pricing' },
-  { label: 'List Of Labs', route: '/list-of-labs' },
-  { label: 'Contact', route: '/contact' },
-  { label: "What's Included", route: '/whats-included' },
-  { label: 'Reviews', route: '/reviews' },
-  { label: 'Terms & Conditions', route: '/terms-conditions' },
-  { label: 'FAQs', route: '/faqs' },
-  { label: 'Privacy Policy', route: '/privacy-policy' },
-]
-
-const desktopMenuData: NavigationType[] = [
-  { label: 'Home', route: '/home' },
-  { label: 'About', route: '/about' },
-  { label: "What's included", route: '/whats-included' },
-  { label: 'Pages', children: PAGES_SUBMENUData },
-]
-
-const mobileMenuData: NavigationType[] = [
-  { label: 'Home', route: '/home' },
-  { label: 'Pages', children: PAGES_SUBMENUData },
-  { label: 'Pricing', route: '/pricing' },
+  { label: 'Contact Us', route: '/contact' },
 ]
 
 const Topbar = () => {
   const pathname = usePathname()
+  const isHomePage = pathname === '/home'
+  const isGoodFinePage = pathname.startsWith('/products')
+  const isGoodFineProductDetail = pathname === '/products/premium-wood-finish'
+  const enquiryHref = isGoodFinePage ? '/products/premium-wood-finish#enquiry' : '/contact'
 
   useEffect(() => {
     const overlay = document.getElementById('mobile-menu')
@@ -58,37 +47,39 @@ const Topbar = () => {
 
   return (
     <>
-      <header className="bg-default-950 relative w-full">
-        <div className="mx-auto flex min-h-9 w-full max-w-[1440px] items-center justify-between gap-4 px-4 text-[11px] font-semibold text-white sm:px-6 sm:text-xs lg:px-10">
-          <p className="hidden items-center gap-2 text-white/75 sm:flex">
-            <Icon icon="tabler:heart-plus" className="text-primary size-4" />
-            Better care, made simpler
-          </p>
-          <div className="ms-auto flex items-center gap-4 sm:gap-6">
-            <Link href="/faqs" className="hover:text-primary transition-colors">
-              FAQs
-            </Link>
-            <Link href="/reviews" className="hover:text-primary hidden transition-colors sm:inline-flex">
-              Reviews
-            </Link>
-            <Link href="/contact" className="hover:text-primary transition-colors">
-              Get in touch
-            </Link>
+      {isHomePage && (
+        <header className="bg-default-950 relative z-[141] w-full">
+          <div className="mx-auto flex min-h-9 w-full items-center justify-between gap-4 px-4 text-[11px] font-semibold text-white sm:px-6 sm:text-xs lg:px-10">
+            <p className="hidden items-center gap-2 text-white/75 sm:flex">
+              <Icon icon={isGoodFinePage ? 'tabler:home-star' : 'tabler:heart-plus'} className="text-primary size-4" />
+              {isGoodFinePage ? 'Premium wood finishes for beautiful interiors' : 'Better care, made simpler'}
+            </p>
+            <div className="ms-auto flex items-center gap-4 sm:gap-6">
+              <Link href={isGoodFinePage ? '/products#categories' : '/faqs'} className="hover:text-primary transition-colors">
+                {isGoodFinePage ? 'Browse products' : 'FAQs'}
+              </Link>
+              <Link href={isGoodFinePage ? '/products/premium-wood-finish' : '/reviews'} className="hover:text-primary hidden transition-colors sm:inline-flex">
+                {isGoodFinePage ? 'Premium Wood Finish' : 'Reviews'}
+              </Link>
+              <Link href={enquiryHref} className="hover:text-primary transition-colors">
+                {isGoodFinePage ? 'Request a quote' : 'Get in touch'}
+              </Link>
+            </div>
           </div>
-        </div>
-      </header>
+        </header>
+      )}
 
-      <div className="sticky top-0 z-140 w-full px-4 pt-3 pb-3 sm:px-6 lg:px-10">
-        <div className="nav-sticky navbar mx-auto flex min-h-18 w-full max-w-[1360px] items-center justify-between gap-3 rounded-2xl bg-white px-4 py-2 shadow-[0_12px_35px_-20px_rgba(60,34,25,0.45)] transition-all duration-300 sm:px-5 lg:px-6">
-          <Link href="/" className="flex shrink-0 items-center" aria-label="Healia home">
-            <Image src={logoDark} alt="Healia" className="h-14 w-auto object-contain sm:h-16" priority />
+      <div className={`${isHomePage ? 'sticky top-0' : 'absolute top-0'} z-140 w-full px-4 pt-3 pb-3 sm:px-6 lg:px-10`}>
+        <div className="nav-sticky navbar mx-auto flex min-h-18 w-full items-center justify-between gap-3 rounded-2xl bg-white px-4 py-2 shadow-[0_12px_35px_-20px_rgba(60,34,25,0.45)] transition-all duration-300 sm:px-5 lg:px-6">
+          <Link href={isGoodFinePage ? '/products' : '/'} className="flex shrink-0 items-center" aria-label={isGoodFinePage ? 'Good Fine products home' : 'Healia home'}>
+            <Image src={logoDark} alt={isGoodFinePage ? 'Good Fine' : 'Healia'} className="h-14 w-auto object-contain sm:h-16" priority />
           </Link>
 
           <nav id="navbar" aria-label="Main navigation" className="hidden items-center justify-end gap-1 lg:flex">
-            {desktopMenuData.map((item) => {
+            {navigationData.map((item) => {
               if (item.children) {
                 const rootRoutes = ['/home', '/about', '/whats-included']
-                const isDropdownActive = item.children.some((subItem) => pathname === subItem.route && !rootRoutes.includes(subItem.route))
+                const isDropdownActive = item.children.some((subItem) => pathname === subItem.route && !rootRoutes.includes(subItem.route)) || (item.route === '/products#categories' && pathname.startsWith('/products'))
                 return (
                   <div key={item.label} className="hs-dropdown relative inline-flex [--trigger:hover]">
                     <button
@@ -96,7 +87,7 @@ const Topbar = () => {
                       className={`hs-dropdown-toggle hover:bg-default-50 hover:text-default-950 flex items-center gap-1 rounded-md px-3 py-2.5 font-medium transition-all xl:px-4 ${isDropdownActive ? 'bg-default-50 text-primary' : 'text-default-600'}`}
                       aria-haspopup="menu"
                       aria-expanded="false"
-                      aria-label="Open pages menu"
+                      aria-label={`Open ${item.label} menu`}
                     >
                       {item.label}
                       <Icon icon="tabler:chevron-down" className="size-4" />
@@ -125,7 +116,7 @@ const Topbar = () => {
                   </div>
                 )
               } else if (item.route) {
-                const isActive = pathname === item.route
+                const isActive = pathname === item.route || (item.route === '/products' && pathname.startsWith('/products/category/')) || (isGoodFineProductDetail && item.route === '/products/premium-wood-finish')
                 return (
                   <Link
                     key={item.route + item.label}
@@ -155,8 +146,11 @@ const Topbar = () => {
             </button>
           </div>
 
-          <Link href="/contact" className="bg-primary hover:bg-default-950 text-default-950 hidden shrink-0 items-center justify-center gap-2 rounded-md px-5 py-3 font-semibold transition-all duration-300 hover:text-white lg:inline-flex">
-            Start Testing
+          <Link
+            href={enquiryHref}
+            className="bg-primary hover:bg-default-950 text-default-950 hidden shrink-0 items-center justify-center gap-2 rounded-md px-5 py-3 font-semibold transition-all duration-300 hover:text-white lg:inline-flex"
+          >
+            {isGoodFinePage ? 'Request a quote' : 'Start Testing'}
             <Icon icon="tabler:arrow-up-right" className="size-4" />
           </Link>
         </div>
@@ -173,17 +167,17 @@ const Topbar = () => {
           <div className="border-default-100 mx-auto mb-4 max-h-[calc(100dvh-1.5rem)] max-w-[1440px] overflow-hidden rounded-2xl border bg-white shadow-[0_24px_80px_-24px_rgba(60,34,25,0.35)]">
             <div className="border-default-100 flex items-center justify-between border-b px-5 py-3">
               <span id="mobile-menu-label" className="text-default-950 text-sm font-semibold">
-                Explore Healia
+                {isGoodFinePage ? 'Explore Good Fine' : 'Explore Healia'}
               </span>
               <button type="button" data-hs-overlay="#mobile-menu" className="hover:bg-default-50 text-default-700 inline-flex size-10 items-center justify-center rounded-full transition-colors" aria-label="Close navigation menu">
                 <Icon icon="tabler:x" className="size-5" />
               </button>
             </div>
             <div className="divide-default-200 flex max-h-[calc(100dvh-6rem)] flex-col gap-1 divide-y overflow-y-auto p-3">
-              {mobileMenuData.map((item) => {
+              {navigationData.map((item) => {
                 if (item.children) {
                   const mobileRootRoutes = ['/home', '/pricing']
-                  const isDropdownActive = item.children.some((subItem) => pathname === subItem.route && !mobileRootRoutes.includes(subItem.route))
+                  const isDropdownActive = item.children.some((subItem) => pathname === subItem.route && !mobileRootRoutes.includes(subItem.route)) || (item.route === '/products#categories' && pathname.startsWith('/products'))
                   return (
                     <div key={item.label} className="hs-accordion">
                       <button
@@ -191,7 +185,7 @@ const Topbar = () => {
                         className={`hs-accordion-toggle hover:bg-default-50 hover:text-default-950 flex w-full items-center justify-between rounded-xl px-4 py-3 font-medium transition-all ${isDropdownActive ? 'text-primary' : 'text-default-600'}`}
                         aria-haspopup="menu"
                         aria-expanded="false"
-                        aria-label="Open pages menu"
+                        aria-label={`Open ${item.label} menu`}
                       >
                         {item.label}
                         <Icon icon="tabler:chevron-down" className="hs-accordion-active:rotate-180 size-4 transition-all" />
@@ -216,7 +210,7 @@ const Topbar = () => {
                     </div>
                   )
                 } else if (item.route) {
-                  const isActive = pathname === item.route
+                  const isActive = pathname === item.route || (item.route === '/products' && pathname.startsWith('/products/category/')) || (isGoodFineProductDetail && item.route === '/products/premium-wood-finish')
                   return (
                     <Link
                       key={'mobile-' + item.route + item.label}
@@ -230,8 +224,8 @@ const Topbar = () => {
                 }
                 return null
               })}
-              <Link href="/contact" className="bg-default-950 hover:bg-primary hover:text-default-950 mt-2 inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 font-semibold text-white transition-colors lg:hidden">
-                Start Testing
+              <Link href={enquiryHref} className="bg-default-950 hover:bg-primary hover:text-default-950 mt-2 inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 font-semibold text-white transition-colors lg:hidden">
+                {isGoodFinePage ? 'Request a quote' : 'Start Testing'}
                 <Icon icon="tabler:arrow-up-right" className="size-4" />
               </Link>
             </div>

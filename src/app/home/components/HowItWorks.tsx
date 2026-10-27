@@ -3,53 +3,72 @@ import { Icon } from '@iconify/react'
 const processSteps = [
   {
     number: '01',
-    icon: 'tabler:palette',
-    title: 'Choose Your Coating Solution',
-    description: 'Browse our wide range of Wood, Metal, Glass, Plastic & Specialty Coatings and select the product that best matches your project requirements.',
+    icon: 'tabler:home-search',
+    accentIcon: 'tabler:search',
+    title: 'Sign up for a free site visit',
+    description: 'Tell us about your space and book a convenient visit with our painting team.',
   },
   {
     number: '02',
-    icon: 'tabler:shopping-bag',
-    title: 'Place Your Order',
-    description: 'Connect with our sales team or authorized distributors for detailed specifications, bulk pricing, and delivery timelines. We make ordering simple and hassle-free.',
+    icon: 'tabler:color-swatch',
+    accentIcon: 'tabler:palette',
+    title: 'Free colour consultation',
+    description: 'Explore colour options and get expert advice to find the right finish for your home.',
   },
   {
     number: '03',
+    icon: 'tabler:file-check',
+    accentIcon: 'tabler:check',
+    title: 'Quotation approval',
+    description: 'Review a clear project quotation, then approve it when you are ready to begin.',
+  },
+  {
+    number: '04',
     icon: 'tabler:paint',
-    title: 'Apply & Experience Excellence',
-    description: 'With support from our application experts, apply your coating and enjoy durable, elegant, long-lasting finishes on your surfaces.',
+    accentIcon: 'tabler:sofa',
+    title: 'Painting work starts',
+    description: 'Our professionals prepare your space and bring your chosen colours to life.',
   },
 ]
 
 const HowItWorks = () => {
   return (
-    <section className="relative w-full overflow-hidden bg-white py-16 md:py-20 lg:py-25" aria-labelledby="process-title">
+    <section className="relative w-full overflow-hidden py-14 md:py-18 lg:py-22" aria-labelledby="process-title">
       <div className="container">
-        <div className="mx-auto mb-10 max-w-3xl text-center md:mb-14">
+        <header className="mx-auto mb-10 max-w-3xl text-center md:mb-14">
           <div className="text-primary mb-2.5 text-sm font-medium tracking-wide">(Our Process)</div>
           <h2 id="process-title" className="text-default-950 text-3xl font-semibold tracking-tight md:text-4xl lg:text-5xl">
-            Get Our Service In <span className="text-default-400">3 Steps</span>
+            Steps of Our <span className="text-default-400">Painting Service</span>
           </h2>
-          <p className="text-default-700 mx-auto mt-4 max-w-2xl leading-relaxed">
-            Over the years, we have built a reputation as an <strong className="text-default-950 font-semibold">ISO 9001:2015 certified company</strong>, delivering products that combine{' '}
-            <strong className="text-default-950 font-semibold">durability, aesthetics, and performance.</strong>
-          </p>
-        </div>
+          <p className="text-default-700 mx-auto mt-4 max-w-2xl leading-relaxed">From the first visit to the final coat, our team makes it simple to transform your space.</p>
+        </header>
 
-        <div className="grid gap-5 md:grid-cols-3 md:gap-6">
-          {processSteps.map((step) => (
-            <article key={step.number} className="border-default-200 bg-default-50 flex h-full flex-col rounded-2xl border p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg md:p-7.5">
-              <div className="mb-8 flex items-center justify-between">
-                <span className="text-primary text-4xl font-semibold tracking-tight">{step.number}</span>
-                <span className="bg-primary/10 text-primary flex size-14 items-center justify-center rounded-full">
-                  <Icon icon={step.icon} className="size-7" aria-hidden="true" />
-                </span>
-              </div>
+        <div className="relative">
+          <svg aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-10 z-0 hidden h-52 w-full lg:block" viewBox="0 0 1200 220" preserveAspectRatio="none" fill="none">
+            <path d="M150 65 C150 140 450 140 450 65 C450 0 750 0 750 65 C750 140 1050 140 1050 65" stroke="var(--color-primary)" strokeWidth="2" strokeDasharray="7 9" />
+            <path d="M294 115 L306 121 L294 127" fill="var(--color-primary)" />
+            <path d="M594 10 L606 16 L594 22" fill="var(--color-primary)" />
+            <path d="M894 115 L906 121 L894 127" fill="var(--color-primary)" />
+          </svg>
 
-              <h3 className="text-default-950 mb-3 text-xl leading-snug font-semibold md:text-2xl">{step.title}</h3>
-              <p className="text-default-700 text-sm leading-relaxed md:text-base">{step.description}</p>
-            </article>
-          ))}
+          <ol className="relative z-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
+            {processSteps.map((step) => (
+              <li key={step.number} className="flex flex-col items-center text-center">
+                <span className="text-primary mb-3 text-3xl leading-none font-semibold tracking-tight">{step.number}</span>
+
+                <div className="relative mb-4 flex h-32 w-36 items-center justify-center rounded-2xl">
+                  <span className="bg-default-100 absolute inset-x-4 inset-y-3 rounded-xl" />
+                  <Icon icon={step.icon} className="text-default-400 relative z-10 size-20 stroke-[1.4]" aria-hidden="true" />
+                  <span className="bg-primary absolute right-5 bottom-5 z-20 flex size-9 items-center justify-center rounded-full text-white ring-4 ring-[var(--color-body-bg)]">
+                    <Icon icon={step.accentIcon} className="size-5" aria-hidden="true" />
+                  </span>
+                </div>
+
+                <h3 className="text-default-950 max-w-52 text-lg leading-snug font-semibold md:text-xl">{step.title}</h3>
+                <p className="text-default-700 mt-2 max-w-64 text-sm leading-relaxed">{step.description}</p>
+              </li>
+            ))}
+          </ol>
         </div>
       </div>
     </section>

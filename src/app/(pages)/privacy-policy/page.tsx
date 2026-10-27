@@ -1,4 +1,4 @@
-import heroImg from '@/assets/images/bg/hero-inner-image.png'
+import pageBanner from '@/assets/images/bg/page-banner.png'
 import { Metadata } from 'next'
 import Image from 'next/image'
 
@@ -9,8 +9,8 @@ export const metadata: Metadata = {
 const Page = () => {
   return (
     <>
-      <section className="relative size-full overflow-hidden py-20 md:py-25 lg:pt-55 lg:pb-35">
-        <Image src={heroImg} className="absolute inset-0 -z-1 size-full object-cover opacity-90" alt="Decoration" />
+      <section className="site-page-hero relative size-full overflow-visible py-12 md:py-16 lg:pt-32 lg:pb-20">
+        <Image src={pageBanner} className="site-page-hero-background -z-1 object-cover opacity-90" alt="Decoration" priority />
 
         <div className="container">
           <div className="text-center">
