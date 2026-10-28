@@ -21,7 +21,7 @@ const bannerSlides: BannerSlide[] = [
   {
     image: banner1,
     alt: 'Beautiful wooden furniture and finishes',
-    eyebrow: 'Good Fine | Advanced German Technology',
+    eyebrow: 'GoodFine | Advanced German Technology.',
     title: 'Premium Wood Finishes',
     highlight: 'Made to Last',
     description: 'Bring warmth, depth, and lasting protection to every wooden surface with finishes crafted for beautiful results.',
@@ -29,7 +29,7 @@ const bannerSlides: BannerSlide[] = [
   {
     image: banner2,
     alt: 'Warm, richly finished wood cabinetry',
-    eyebrow: 'A Better Finish Starts Here',
+    eyebrow: 'GoodFine | Advanced German Technology.',
     title: 'Bring Out the',
     highlight: 'Beauty of Wood',
     description: 'Celebrate the natural grain of your wood with a smooth, rich finish designed to protect the details that make it special.',
