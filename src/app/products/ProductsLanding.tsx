@@ -45,7 +45,7 @@ const ProductsLanding = () => {
         </div>
       </section>
 
-      <section id="categories" className="scroll-mt-28 px-4 py-14 sm:px-6 md:py-20 lg:px-10" aria-labelledby="categories-title">
+      <section id="categories" className="mx-auto w-full max-w-[1440px] scroll-mt-28 bg-[#fbf6ef] px-4 py-14 sm:px-6 md:py-20 lg:px-10" aria-labelledby="categories-title">
         <div className="mb-8 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="text-primary text-sm font-semibold tracking-[0.14em] uppercase">Explore the range</p>
@@ -67,7 +67,7 @@ const ProductsLanding = () => {
               <Link
                 key={category.slug}
                 href={`/products/category/${category.slug}`}
-                className="group border-default-200 hover:border-default-300 flex h-full flex-col overflow-hidden rounded-2xl border bg-white shadow-[0_14px_40px_-30px_rgba(60,34,25,0.5)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_50px_-28px_rgba(60,34,25,0.35)]"
+                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-[#e8ddd2] bg-white shadow-[0_12px_30px_-20px_rgba(60,34,25,0.38)] transition duration-300 hover:-translate-y-1 hover:border-[#d7c5b5] hover:shadow-[0_22px_50px_-24px_rgba(60,34,25,0.3)]"
               >
                 <div className="bg-default-100 relative aspect-[16/10] overflow-hidden">
                   <Image src={category.image} alt={category.imageAlt} fill sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" className={`object-cover transition duration-500 group-hover:scale-[1.03] ${index === 3 ? 'object-center' : ''}`} />
@@ -107,7 +107,7 @@ const ProductsLanding = () => {
         )}
       </section>
 
-      <section className="px-4 pb-14 sm:px-6 md:pb-20 lg:px-10" aria-labelledby="lifestyle-title">
+      <section className="mx-auto w-full max-w-[1440px] px-4 pb-14 sm:px-6 md:pb-20 lg:px-10" aria-labelledby="lifestyle-title">
         <div className="relative isolate overflow-hidden rounded-2xl bg-[#3c2219]">
           <Image src={lifestyleImage} alt="Warm wood cabinetry in a contemporary interior" fill sizes="(max-width: 1440px) 100vw, 1440px" className="object-cover object-center" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#21150e]/90 via-[#21150e]/65 to-[#21150e]/10" />
@@ -127,7 +127,7 @@ const ProductsLanding = () => {
         </div>
       </section>
 
-      <section id="popular-categories" className="border-default-200 scroll-mt-28 border-y bg-white px-4 py-10 sm:px-6 md:py-12 lg:px-10" aria-labelledby="popular-categories-title">
+      <section id="popular-categories" className="border-default-200 mx-auto w-full max-w-[1440px] scroll-mt-28 border-y bg-white px-4 py-10 sm:px-6 md:py-12 lg:px-10" aria-labelledby="popular-categories-title">
         <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
           <div className="shrink-0">
             <p className="text-primary text-sm font-semibold tracking-[0.14em] uppercase">Quick links</p>
